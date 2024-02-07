@@ -17,3 +17,11 @@ cd build
 cmake ..
 make
 ```
+
+## Git pre-commit
+
+In order to make git auto-format when you push you need to link the pre-commit in the .git folder:
+
+```bash
+ln -s pre-commit .git/hooks/pre-commit
+```
