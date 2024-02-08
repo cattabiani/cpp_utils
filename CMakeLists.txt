@@ -25,5 +25,3 @@ target_link_libraries(cpp_utils_test PRIVATE ${GTEST_BOTH_LIBRARIES} pthread)
 
 # Register tests
 gtest_discover_tests(cpp_utils_test)
-
-# cmake -S . -B build -G Ninja && cmake --build build && ./build/cpp_utils_test

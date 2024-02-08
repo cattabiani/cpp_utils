@@ -9,13 +9,10 @@ Useful collection of free functions
 
 ## Building the Tests
 
-To build the project, you can use CMake and Ninja:
+For building and running the tests use CMake and Ninja:
 
 ```bash
-mkdir build
-cd build
-cmake ..
-make
+cmake -S . -B build -G Ninja && cmake --build build && ./build/cpp_utils_test
 ```
 
 
