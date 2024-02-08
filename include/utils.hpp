@@ -75,5 +75,5 @@ std::ostream &operator<<(std::ostream &os, const std::shared_ptr<T> &v) {
 }
 
 template <class T> bool is_close(T x0, T x1, T v) {
-    return (x0 - v) <= x1 <= (x0 + v);
+    return ((x0 - v) <= x1) && (x1 <= (x0 + v));
 }
