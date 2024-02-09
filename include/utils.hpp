@@ -28,9 +28,15 @@ struct is_iterable<T, std::void_t<decltype(std::declval<T>().begin()),
     : std::true_type {};
 
 inline std::ostream &operator<<(std::ostream &os, const std::string &s) {
-    os.put('\"');
-    os.write(s.c_str(), s.size());
-    os.put('\"');
+    os << '\"';
+    for (auto i : s) {
+        if (i == '\n') {
+            os << '\\' << 'n';
+        } else {
+            os << i;
+        }
+    }
+    os << '\"';
     return os;
 }
 
