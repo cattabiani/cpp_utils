@@ -13,7 +13,7 @@ TEST(JsonParserTest, BasicParsing) {
     vector<pair<int, char>> a{{1, 'a'}, {2, 'b'}, {3, 'c'}};
     unordered_map<int, vector<int>> b{{1, {1, 2}}, {2, {3, 4, 5}}};
     vector<string> c{"bau", "miao"};
-    string d = "Hello\n\"s";
+    string d = "Hel\\lo\n\"s";
     oss << a;
     ASSERT_EQ(oss.str(), "{1: a, 2: b, 3: c}");
     oss.str("");
@@ -24,5 +24,8 @@ TEST(JsonParserTest, BasicParsing) {
     ASSERT_EQ(oss.str(), "[\"bau\", \"miao\"]");    
     oss.str("");
     oss << d;
-    ASSERT_EQ(oss.str(), "\"Hello\\n\\\"s\"");    
+
+    cout << d << endl;
+
+    ASSERT_EQ(oss.str(), "\"Hel\\\\lo\\n\\\"s\"");    
 }

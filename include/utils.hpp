@@ -39,6 +39,10 @@ inline std::ostream &operator<<(std::ostream &os, const std::string &s) {
                 os << '\\' << '\"';
                 break;
             }
+            case '\\': {
+                os << '\\' << '\\';
+                break;
+            }
             default:
                 os << i;
         }
