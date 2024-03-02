@@ -30,10 +30,17 @@ struct is_iterable<T, std::void_t<decltype(std::declval<T>().begin()),
 inline std::ostream &operator<<(std::ostream &os, const std::string &s) {
     os << '\"';
     for (auto i : s) {
-        if (i == '\n') {
-            os << '\\' << 'n';
-        } else {
-            os << i;
+        switch (i) {
+            case '\n': {
+                os << '\\' << 'n';
+                break;
+            }
+            case '\"': {
+                os << '\\' << '\"';
+                break;
+            }
+            default:
+                os << i;
         }
     }
     os << '\"';
